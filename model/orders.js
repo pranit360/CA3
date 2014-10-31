@@ -61,14 +61,62 @@ function getCustomerById(id, callback){
         .populate('order')
         .exec(function (err, details)
         {
-            var tryThis = [];
             if(err)
             {
                 callback(err);
             }
+            var thisIsTheId;
+            var i = 0;
+            do{
+                if(details[i].order._id == id)
+                {
+                    thisIsTheId = details[i].order.customer;
+                }
+                i++;
+            }while(i<details.length);
 
-            model.OrderModel.find({})
+
+            model.OrderModel.find({customer: thisIsTheId})
                 .populate('customer')
+                .exec(function(err,deta){
+
+                    if(err)
+                    {
+                        callback(err);
+                    }
+
+                    callback(null, deta);
+
+
+
+                });
+
+        });
+}
+
+function getEmployee(id, callback){
+    model.DetailsModel.find({order: id})
+        .populate('product')
+        .populate('order')
+        .exec(function (err, details)
+        {
+            if(err)
+            {
+                callback(err);
+            }
+            var thisIsTheId;
+            var i = 0;
+            do{
+                if(details[i].order._id == id)
+                {
+                    thisIsTheId = details[i].order.employee;
+                }
+                i++;
+            }while(i<details.length);
+
+
+            model.OrderModel.find({employee: thisIsTheId})
+                .populate('employee')
                 .exec(function(err,deta){
 
                     if(err)
@@ -125,6 +173,7 @@ function updateOrder(order,callback) {
         getOrderById: getOrderById,
         removeOrder: removeOrder,
         updateOrder: updateOrder,
-        getCustomerById: getCustomerById
+        getCustomerById: getCustomerById,
+        getEmployee: getEmployee
     }
 

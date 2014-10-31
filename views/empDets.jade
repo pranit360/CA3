@@ -1,0 +1,51 @@
+//
+   Created by Pranit Anand on 31-10-2014.
+extends layout
+block content
+    div.container
+        p Details of clicked employee
+        table(border="1" class="table table-striped table-hover ")
+            thead
+                tr(class="warning")
+                    th _id
+                    th lastName
+                    th firstName
+                    th title
+                    th titleOfCourtesy
+                    th birthDate
+                    th hireDate
+                    th address
+                    th city
+                    th region
+                    th postalCode
+                    th country
+                    th homePhone
+                    th extension
+            each o in empDets
+                tr(class="info")
+                    td #{o._id}
+                        td #{o.lastName}
+                            td #{o.firstName}
+                                td #{o.title}
+                                    td #{o.titleOfCourtesy}
+                                        td #{o.birthDate}
+                                            td #{o.hireDate}
+                                                td #{o.address}
+                                                    td #{o.city}
+                                                        td #{o.region}
+                                                            td #{o.postalCode}
+                                                                td #{o.country}
+                                                                    td #{o.homePhone}
+                                                                        td #{o.extension}
+        table(border="1" class="table table-striped table-hover ")
+            tr(class="success")
+                    th notes
+            each o in empDets
+                tr(class="info")
+                    td #{o.notes}
+        table(border="1" class="table table-striped table-hover ")
+            tr(class="success")
+                td
+                    td
+                        td
+                            a(href='#') Back

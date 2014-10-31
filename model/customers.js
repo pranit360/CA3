@@ -29,7 +29,17 @@ function getOrdersById(id, callback){
 
 }
 
+function getCustomerDetails(id, callback) {
+    model.CustomerModel.find({_id: id}, function (err, result) {
+        if (err) {
+            return callback(err);
+        }
+        callback(null, result);
+    });
+}
+
 module.exports={
     getAllCustomers: getAllCustomers,
-    getOrdersById: getOrdersById
+    getOrdersById: getOrdersById,
+    getCustomerDetails: getCustomerDetails
 }

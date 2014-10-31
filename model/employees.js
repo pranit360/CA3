@@ -27,7 +27,21 @@ function getEmployeeOrdersByID(id, callback){
         });
 
 }
+
+function getEmployeeDetails(id, callback){
+    model.EmployeeModel.find({_id:id}, function (err, result){
+        if (err){
+            return callback(err);
+        }
+        callback(null,result);
+
+
+    });
+}
+
+
 module.exports={
     getAllEmployees: getAllEmployees,
-    getEmployeeOrdersByID: getEmployeeOrdersByID
+    getEmployeeOrdersByID: getEmployeeOrdersByID,
+    getEmployeeDetails: getEmployeeDetails
 }

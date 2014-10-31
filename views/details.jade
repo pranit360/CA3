@@ -12,7 +12,8 @@ block content
                             td
                                 td
                                     td Name:
-                                        td #{customerDetails[0].customer.contactName}
+                                        td
+                                            a(href='/orderDetails/custDetails/'+customerDetails[0].customer._id) #{customerDetails[0].customer.contactName}
             tr(class="info")
                 td Date:
                     td #{detailsList[0].order.orderDate}
@@ -41,6 +42,22 @@ block content
                             td
                                 td Country:
                                     td #{customerDetails[0].customer.country}
+            tr(class="info")
+                td
+                    td
+                        td
+                            td
+                                td Employee first name:
+                                    td
+                                        a(href='/orderDetails/empDetails/'+empDetails[0].employee._id) #{empDetails[0].employee.firstName}
+            tr(class="info")
+                td
+                    td
+                        td
+                            td
+                                td Employee last name:
+                                    td
+                                        a(href='/orderDetails/empDetails/'+empDetails[0].employee._id) #{empDetails[0].employee.lastName}
 
         table(border="1" class="table table-striped table-hover ")
             thead

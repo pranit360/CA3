@@ -45,6 +45,8 @@ app.use('/model/employees', employees);
 app.use('/model/customers', customers);
 app.use('/categories', categories);
 app.use('/', routes);
+app.use('/custDetails', customers);
+
 //app.use('/addOrder',routes);
 //app.use('/addO',routes);
 //app.use('/cust',routes);

@@ -61,8 +61,17 @@ router.get("/orderDetails/:id", function (req, res, next) {
                 return;
                 next();
             }
+            orders.getEmployee(id, function(err, empDetails){
+                if (err) {
 
-        res.render('details', { detailsList: orderDetails,  customerDetails: customerDetails});
+                    res.status(err.status || 500);
+                    res.send(JSON.stringify({error: err.toString()}));
+                    return;
+                    next();
+                }
+        res.render('details', { detailsList: orderDetails,  customerDetails: customerDetails, empDetails: empDetails});
+            });
+
         });
 
 //res.header("Content-Type","application/json");
@@ -73,6 +82,36 @@ router.get("/orderDetails/:id", function (req, res, next) {
 });
 
 
+router.get("/orderDetails/custDetails/:id", function (req, res, next) {
+    console.log('gotten there');
+    var id=req.params.id;
+    customers.getCustomerDetails(id, function (err, custDets){
+        if (err) {
+            res.status(err.status || 500);
+            res.send(JSON.stringify({error: err.toString()}));
+            return;
+
+        }
+        res.render('custDets', {title: 'Customer details', custDets: custDets});
+
+    });
+});
+
+
+router.get("/orderDetails/empDetails/:id", function (req, res) {
+    console.log('gotten there');
+    var id=req.params.id;
+    employees.getEmployeeDetails(id, function (err, empDets){
+        if (err) {
+            res.status(err.status || 500);
+            res.send(JSON.stringify({error: err.toString()}));
+            return;
+
+        }
+        res.render('empDets', {title: 'Employee details', empDets: empDets});
+
+    });
+});
 
 
 router.get('/categories', function (req, res, next) {
@@ -176,7 +215,20 @@ router.get('/customers', function (req, res, next) {
     })
 });
 
+router.get('/custDetails/:id', function(req,res){
+    console.log('gotten there');
+    var id=req.params.id;
+    customers.getCustomerDetails(id, function (err, custDets){
+        if (err) {
+            res.status(err.status || 500);
+            res.send(JSON.stringify({error: err.toString()}));
+            return;
 
+        }
+        res.render('custDets', {title: 'Customer details', custDets: custDets})
+
+    });
+});
 
 
 router.get("/orders/:id", function (req, res) {
