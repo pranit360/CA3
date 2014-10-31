@@ -54,21 +54,77 @@ function removeOrder(id, callback){
     });
 }
 
-function tryIng(callback){
-    model.OrderModel.save( function(err, result) {
 
-        if(err){
-            return callback(err);
-        }
-        callback(null,result);
+function getCustomerById(id, callback){
+    model.DetailsModel.find({order: id})
+        .populate('product')
+        .populate('order')
+        .exec(function (err, details)
+        {
+            var tryThis = [];
+            if(err)
+            {
+                callback(err);
+            }
 
-    });
+            model.OrderModel.find({})
+                .populate('customer')
+                .exec(function(err,deta){
+
+                    if(err)
+                    {
+                        callback(err);
+                    }
+
+                    callback(null, deta);
+
+
+
+                });
+
+        });
 }
 
+//THE FOLLOWING IS FOR EDIT AN ORDER
+function updateOrder(order,callback) {
 
-module.exports={
-    getAllOrders: getAllOrders,
-    getOrderById: getOrderById,
-    removeOrder: removeOrder,
-    tryIng: tryIng
+    model.OrderModel.update({_id: order._id}, {$set: {customer: order.customer, employee: order.employee, orderDate: order.orderDate, requiredDate: order.requiredDate, requiredDate: order.requiredDate, shippedDate: order.shippedDate, shipVia: order.shipVia, freight: order.freight, shipName: order.shipName, shipAddress: order.shipAddress, shipCity: order.shipCity, shipRegion: order.shipRegion, shipPostalCode: order.shipPostalCode, shipCountry: order.shipCountry}}).exec();
+
+
+//THE FOLLOWING CODE IS A POSSIBILITY TO IMPLEMENT THE ADD ORDER
+// BUT IT IS COMMENTED OUT BECAUSE IT BREAKS THE DATABASE AS NO OTHER SCHEMAS
+// ARE ADDED TO
+//function saveOrder(order,callback){
+//        p = new model.OrderModel(order);
+//        p.save(function(err,createdOrder){
+//            if(err){
+//                return callback(err);
+//            }
+//            callback(null,createdOrder);
+//        });
+//    };
+
+
+//THE FOLLOWING CODE IS A POSSIBILITY TO IMPLEMENT THE ADD ORDER
+// BUT IT IS COMMENTED OUT BECAUSE IT GIVES AN ERROR
+//
+//function save(callback){
+//    model.OrderModel.save( function(err, result) {
+//
+//        if(err){
+//            return callback(err);
+//        }
+//        callback(null,result);
+//
+//    });
+//}
+
 }
+    module.exports = {
+        getAllOrders: getAllOrders,
+        getOrderById: getOrderById,
+        removeOrder: removeOrder,
+        updateOrder: updateOrder,
+        getCustomerById: getCustomerById
+    }
+

@@ -12,35 +12,35 @@ block content
                             td
                                 td
                                     td Name:
-                                        td #{detailsList[0].order.customer.contactName}
+                                        td #{customerDetails[0].customer.contactName}
             tr(class="info")
                 td Date:
                     td #{detailsList[0].order.orderDate}
                         td
                             td
                                 td Address:
-                                    td
+                                    td #{customerDetails[0].customer.address}
             tr(class="info")
                 td Required:
                     td #{detailsList[0].order.requiredDate}
                         td
                             td
                                 td City:
-                                    td
+                                    td #{customerDetails[0].customer.city}
             tr(class="info")
                 td Shipped:
                     td #{detailsList[0].order.shippedDate}
                         td
                             td
                                 td Zip:
-                                    td
+                                    td #{customerDetails[0].customer.postalCode}
             tr(class="info")
                 td
                     td
                         td
                             td
                                 td Country:
-                                    td
+                                    td #{customerDetails[0].customer.country}
 
         table(border="1" class="table table-striped table-hover ")
             thead

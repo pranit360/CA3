@@ -15,6 +15,19 @@ function getAllEmployees(callback) {
     });
 }
 
+
+function getEmployeeOrdersByID(id, callback){
+    model.OrderModel.find({employee:id} , function(err, result){
+            if (err){
+                return callback(err);
+            }
+         callback(null,result);
+
+
+        });
+
+}
 module.exports={
-    getAllEmployees: getAllEmployees
+    getAllEmployees: getAllEmployees,
+    getEmployeeOrdersByID: getEmployeeOrdersByID
 }

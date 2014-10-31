@@ -8,12 +8,15 @@ block content
         table(class="table table-striped table-hover " border="2" width="300")
             thead
                 tr(class="success")
-                    th First name
-                        th Last name
+                    th ID
+                        th First name
+                            th Last name
             each e in empList
                 tr(class="warning")
-                    td #{e.firstName}
-                        td #{e.lastName}
+                    td
+                        a(href='/emps/'+e._id) #{e._id}
+                            td #{e.firstName}
+                                td #{e.lastName}
     table(class="table table-striped table-hover ")
         tr(class="success")
             td

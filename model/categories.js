@@ -17,7 +17,7 @@ function getAllCategories(callback) {
 }
 
 function getProductsByCategoryId(id, callback) {
-    model.ProductModel.find({categoryId:id}, function (err, products) {
+    model.ProductModel.find({category:id}, function (err, products) {
         if (err) {
             return callback(err);
         }

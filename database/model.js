@@ -9,6 +9,7 @@ var CategorySchema = mongoose.Schema({
     description: String
 });
 
+
 exports.CategoryModel = mongoose.model('categories', CategorySchema);
 
 var ProductSchema = mongoose.Schema({

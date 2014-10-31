@@ -1,0 +1,28 @@
+//
+   Created by Pranit Anand on 31-10-2014.
+
+//
+   Created by Pranit Anand on 31-10-2014.
+extends layout
+block content
+    div.container
+    p Follows the List of orders
+        table(border="1" class="table table-striped table-hover ")
+            thead
+                tr(class="warning")
+                    th id
+                    th date
+                    th name
+                    th address
+                        each o in custOrders
+                            tr(class="info")
+                                td #{o._id}
+                                    td #{o.orderDate}
+                                        td #{o.shipName}
+                                            td #{o.shipAddress}
+        table(border="1" class="table table-striped table-hover ")
+            tr(class="success")
+                td
+                td
+                td
+                    a(href='/customers') Back

@@ -9,9 +9,10 @@ block content
             thead
                 tr(class="success")
                     th Customer names
-            each c in custList
-                tr(class="warning")
-                    td #{c.contactName}
+                        each c in custList
+                            tr(class="warning")
+                                td
+                                    a(href='/cust/'+c._id) #{c.contactName}
         table(class="table table-striped table-hover ")
             tr(class="success")
                 td

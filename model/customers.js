@@ -15,6 +15,21 @@ function getAllCustomers(callback) {
     });
 }
 
+
+
+function getOrdersById(id, callback){
+    model.OrderModel.find({customer: id} , function(err, result){
+        if (err){
+            return callback(err);
+        }
+        callback(null,result);
+
+
+    });
+
+}
+
 module.exports={
-    getAllCustomers: getAllCustomers
+    getAllCustomers: getAllCustomers,
+    getOrdersById: getOrdersById
 }
