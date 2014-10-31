@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        function doThat(frm){
+            var output= frm.__id.value;
+            console.log(output);
+            //window.open('/ww');
+        }
+
+    </script>
+</head>
+<body>
+<h1>Please add an order</h1>
+
+<form method="post" action="/addOrder" name="test">
+    <table><tr><td><input placeholder="ID" name="id" id="id" ></td></tr>
+
+    <tr><td><input placeholder="customer" name="customer" id="customer"></td></tr>
+
+    <tr><td><input placeholder="employee" name="employee" id="employee"></td></tr>
+
+    <tr><td><input placeholder="orderDate" name="orderDate" id="orderDate"></td></tr>
+
+    <tr><td><input placeholder="requiredDate" name="requiredDate" id="requiredDate"></td></tr>
+
+    <tr><td><input placeholder="shippedDate" name="shippedDate" id="shippedDate"></td></tr>
+
+    <tr><td><input placeholder="shipVia" name="shipVia" id="shipVia"></td></tr>
+
+    <tr><td><input placeholder="freight(number)" name="freight" id="freight"></td></tr>
+
+    <tr><td><input placeholder="shipName" name="shipName" id="shipName"></td></tr>
+
+    <tr><td><input placeholder="shipAddress" name="shipAddress" id="shipAddress"></td></tr>
+
+    <tr><td><input placeholder="shipCity" name="shipCity" id="shipCity"></td></tr>
+
+    <tr><td><input placeholder="shipRegion" name="shipRegion" id="shipRegion"></td></tr>
+
+    <tr><td><input placeholder="shipPostalCode" name="shipPostalCode" id="shipPostalCode"></td></tr>
+
+    <tr><td><input placeholder="shipCountry" name="shipCountry" id="shipCountry"></td></tr>
+
+    <tr><td></td></tr></table>
+    <input type="submit" value="Add order" onClick="doThat(this.form)" >
+
+
+
+
+</form>
+
+
+
+
+
+</body>
+</html>

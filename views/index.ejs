@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head><title></title><!--link(href="/images/favicon.ico", rel="shortcut icon", type="image/x-icon")-->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/toastr.min.css">
+    <link rel="stylesheet" href="/css/site.css">
+    <link rel="stylesheet" href="/css/table.min.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
+    <link rel="stylesheet" href="/css/table.css">
+<script type="text/javascript">
+
+    // var idGotten=document.getElementById("id");
+
+    //console.log(idGotten);
+//    function doLoading(){
+//        alert("called");
+//        $.ajax({
+//            url:'/temp',
+//            type:'GET',
+////datatype:'text/html'
+//            error: function (data, textStatus, jqXHR) {
+//                var jsonResponse = JSON.parse(data.responseText);
+//                alert(jsonResponse.error);
+//            }
+//        }).done(function(data){
+//alert("well"+data);
+//
+//        });
+//
+//
+//    }
+//
+//
+//    function initFetch(){
+//        $("#id").click(function() {
+//            doLoading();
+//        });
+//    }
+//
+//    $(document).ready(function(){
+//        initFetch();
+//        doLoading();
+//    })
+
+    $(document).ready(function () {
+        $.getJSON(url,
+                function (json) {
+                    var tr;
+                    for (var i = 0; i < json.length; i++) {
+                        tr = $('<tr/>');
+                        tr.append("<td>" + json[i]._id+ "</td>");
+                        tr.append("<td>" + json[i]._id+ "</td>");
+                        tr.append("<td>" + json[i]._id+ "</td>");
+                        $('table').append(tr);
+                    }
+                });
+    });
+//    $(document).ready(function () {
+//
+//        console.log("enters");
+//
+//        alert("enters");
+//        doThing();
+//    });
+//    var data= require('./routes/orders');
+//        function doThing(){
+//
+//    console.log(data);
+//
+//                var headers = [ ""], rows = {}
+//                $.each(data.jsondata, function (clientIdx, item) {
+//            headers.push(item.label);
+//            $.each(item.data, function (i, arr) {
+//                if (!rows[arr[0]]) {
+//                    rows[arr[0]] = [];
+//                }
+//                rows[arr[0]][clientIdx] = arr[1];
+//            })
+//        });
+//
+//
+//        var rowHtml = '<tr><th>' + headers.join('</th><th>') + '</th></tr>';
+//        $.each(rows, function (key, arr) {
+//            rowHtml += '<tr><td>' + key + '</td>';
+//            rowHtml += '<td>' + arr.join('</td><td>') + '</td></tr>';
+//
+//        });
+//
+//        $('#table').html(rowHtml);
+//    }
+
+</script>
+
+    </head>
+<body><div class="container"><h1></h1><p>Welcome to our presentation</p></div>
+
+<!-- follows the bootstrap for the nav bar
+this is referencing the table.min.css file -->
+
+<div class="navbar navbar-inverse">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+    </div>
+    <div class="navbar-collapse collapse navbar-inverse-collapse">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Orders</a></li>
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+
+        </ul>
+    </div>
+</div>
+
+
+<!-- follows the bootstrap for the table
+it is referencing the table.min.css file -->
+
+
+<!--<table class="table table-striped table-hover " name="table" id="table">-->
+    <!--<thead>-->
+    <!--<tr class="warning" >-->
+        <!--<th width="100">#</th>-->
+        <!--<th width="100">ID</th>-->
+        <!--<th width="150">Date</th>-->
+        <!--<th width="200">Name</th>-->
+        <!--<th width="400">Address</th>-->
+    <!--</tr>-->
+    <!--</thead>-->
+    <!--<tbody>-->
+    <!--<tr class="info">-->
+        <!--&lt;!&ndash;td><p name="id" id="id" onCLick="doLoading()">1</p></td&ndash;&gt;-->
+<!--for (-->
+
+        <!--<td><a href="/temp">1</a></td>-->
+        <!--<td>Column content</td>-->
+        <!--<td>Column content</td><td>Column content</td>-->
+        <!--<td>Column content</td>-->
+    <!--</tr>-->
+    <!--<tr class="info">-->
+        <!--<td>2</td>-->
+        <!--<td>Column content</td>-->
+        <!--<td>Column content</td>-->
+        <!--<td>Column content</td>-->
+        <!--<td>Column content</td>-->
+    <!--</tr>-->
+    <!--<tr class="info">-->
+        <!--<td>3</td>-->
+        <!--<td>Column content</td>-->
+        <!--<td>Column content</td>-->
+        <!--<td>Column content</td>-->
+        <!--<td>Column content</td>-->
+    <!--</tr>-->
+    <!--<tr class="info">-->
+        <!--<td>4</td>-->
+        <!--<td>Column content</td>-->
+        <!--<td>Column content</td>-->
+        <!--<td>Column content</td>-->
+        <!--<td>Column content</td>-->
+    <!--</tr>-->
+    <!--<tr class="info">-->
+        <!--<td>5</td>-->
+        <!--<td>Column content</td>-->
+        <!--<td>Column content</td>-->
+        <!--<td>Column content</td>-->
+        <!--<td>Column content</td>-->
+    <!--</tr>-->
+    <!--<tr class="info">-->
+        <!--<td>6</td>-->
+        <!--<td>Column content</td>-->
+        <!--<td>Column content</td>-->
+        <!--<td>Column content</td>-->
+        <!--<td>Column content</td>-->
+    <!--</tr>-->
+    <!--<tr class="info">-->
+        <!--<td>7</td>-->
+        <!--<td>Column content</td><td>Column content</td>-->
+        <!--<td>Column content</td>-->
+        <!--<td>Column content</td>-->
+    <!--</tr>-->
+    <!--</tbody>-->
+<!--</table>-->
+
+<table id="table"></table>
+<script type="text/javascript" src="/javascripts/jquery.min.js">
+
+</script><script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="/javascripts/site.js"></script>
+</body></html>

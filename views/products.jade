@@ -1,0 +1,20 @@
+//
+   Created by Pranit Anand on 29-10-2014.
+
+extends layout
+block content
+    div.container
+        p Products Overview
+        table(class="table table-striped table-hover " border="2" width="300")
+            thead
+                tr(class="success" width="300")
+                    th Products ordered
+            each p in prodList
+                tr(class="warning")
+                    td #{p.name}
+    table(class="table table-striped table-hover ")
+        tr(class="success")
+            td
+                td
+                    td
+                        a(href='/') Back

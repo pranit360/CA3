@@ -1,0 +1,78 @@
+//
+   Created by Pranit Anand on 29-10-2014.
+
+extends layout
+block content
+ div.container
+    p Order Details
+        table(class="table table-striped table-hover ")
+            tr(class="info")
+                td OrderID:
+                        td #{detailsList[0].order._id}
+                            td
+                                td
+                                    td Name:
+                                        td #{detailsList[0].order.customer.contactName}
+            tr(class="info")
+                td Date:
+                    td #{detailsList[0].order.orderDate}
+                        td
+                            td
+                                td Address:
+                                    td
+            tr(class="info")
+                td Required:
+                    td #{detailsList[0].order.requiredDate}
+                        td
+                            td
+                                td City:
+                                    td
+            tr(class="info")
+                td Shipped:
+                    td #{detailsList[0].order.shippedDate}
+                        td
+                            td
+                                td Zip:
+                                    td
+            tr(class="info")
+                td
+                    td
+                        td
+                            td
+                                td Country:
+                                    td
+
+        table(border="1" class="table table-striped table-hover ")
+            thead
+                tr(class="success")
+                    th Product
+                    th Unit Price
+                    th Quantity
+                    th Discount
+                    th Price
+            - var sum = 0
+              each d in detailsList
+                tr(class="warning")
+                            td #{d.product.name}
+                                td #{d.unitPrice}
+                                    td #{d.quantity}
+                                        td #{d.discount}
+                                            td #{(d.unitPrice * d.quantity)-d.discount}
+        table(class="table table-striped table-hover ")
+            tr(class="danger")
+                td TOTAL
+                    td
+                        td
+                            td
+                                td #{sum}
+            tr(class="success")
+                    td
+                        td
+                            td
+                                a(href='/') Back
+                                    td
+                                        td
+
+
+
+

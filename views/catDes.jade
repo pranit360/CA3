@@ -1,0 +1,22 @@
+//
+   Created by Pranit Anand on 29-10-2014.
+//
+   Created by Pranit Anand on 29-10-2014.
+extends layout
+block content
+    div.container
+        p Categories Items
+        table(class="table table-striped table-hover " border="2" width="300")
+            thead
+                tr(class="success")
+                    th Items name(s)
+                          each i in itemsList
+                                tr(class="warning")
+                                    td #{i.description}
+        table(class="table table-striped table-hover ")
+                tr(class="success")
+                    td
+                        td
+                            td
+                                a(href='/categories') Back
+

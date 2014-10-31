@@ -1,0 +1,22 @@
+//
+   Created by Pranit Anand on 29-10-2014.
+extends layout
+block content
+    div.container
+        p Categories
+        table(class="table table-striped table-hover " border="2" width="300")
+            thead
+                tr(class="success")
+                    th Category name
+            each c in catList
+                tr(class="warning")
+                    td
+                        a(href='/cats/'+c._id) #{c.name}
+        table(class="table table-striped table-hover ")
+                tr(class="success")
+                    td
+                        td
+                            td
+                                a(href='/') Back
+
+

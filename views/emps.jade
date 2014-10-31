@@ -1,0 +1,22 @@
+//
+   Created by Pranit Anand on 29-10-2014.
+
+extends layout
+block content
+    div.container
+        p Employee names
+        table(class="table table-striped table-hover " border="2" width="300")
+            thead
+                tr(class="success")
+                    th First name
+                        th Last name
+            each e in empList
+                tr(class="warning")
+                    td #{e.firstName}
+                        td #{e.lastName}
+    table(class="table table-striped table-hover ")
+        tr(class="success")
+            td
+                td
+                    td
+                        a(href='/') Back

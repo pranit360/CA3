@@ -1,0 +1,47 @@
+extends layout
+block content
+    div.container
+     p Here is the presentation of our group for CA3
+        hr
+        a(href='Docs/documentation.docx') Documentation
+        h1= title
+        p Welcome to #{title}
+            hr
+            a(href='Docs/addO.html') Add order
+            p Below are some links
+            table(border="1" class="table table-striped table-hover ")
+                tr(class="success")
+                    td
+                        a(href='/categories') Categories
+                            tr(class="success")
+                                td
+                                    a(href='/products') Products
+                                        tr(class="success")
+                                            td
+                                                a(href='/employees') Employees
+                                                    tr(class="success")
+                                                        td
+                                                            a(href='/customers') Customers
+        p Follows the List of orders
+            table(border="1" class="table table-striped table-hover ")
+                thead
+                    tr(class="warning")
+                        th id
+                            th date
+                                th name
+                                    th address
+                                        th Edit
+                                            th Delete
+                                                each o in orderList
+                                                    tr(class="info")
+                                                        td
+                                                           a(href='orderDetails/'+o._id) #{o._id}
+                                                                    td #{o.orderDate}
+                                                                        td #{o.shipName}
+                                                                            td #{o.shipAddress}
+                                                                                td
+                                                                                    button(type="button", class="btn btn-primary")
+                                                                                        Edit
+                                                                                            class="EDIT"
+                                                                                                td
+                                                                                                 a(href='/orders/'+o._id) DELETE
