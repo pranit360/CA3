@@ -2,7 +2,8 @@
 <project version="4">
   <component name="JavaScriptLibraryMappings">
     <file url="file://$PROJECT_DIR$" libraries="{mongoViewer node_modules, ordersViewer node_modules}" />
-    <file url="file://$PROJECT_DIR$/model/orders.js" libraries="{Node.js Globals, mongoViewer node_modules, mongoose-DefinitelyTyped}" />
+    <file url="file://$PROJECT_DIR$/model/orders.js" libraries="{mongoViewer node_modules, mongoose-DefinitelyTyped}" />
+    <excludedPredefinedLibrary name="HTML" />
+    <excludedPredefinedLibrary name="HTML5 / EcmaScript 5" />
   </component>
 </project>
-
